@@ -1,0 +1,21 @@
+﻿@* @model Divar.Models.Advertisement
+
+<h2>Delete Advertisement</h2>
+
+<h3>Are you sure you want to delete this advertisement?</h3>
+<div>
+    <h4>@Model.Title</h4>
+    <div>
+        <p>@Model.Description</p>
+        <p>Price: @Model.Price</p>
+        <p>Category: @Model.Category</p>
+        <p>Publisher: @Model.PublisherName</p> 
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+ *@

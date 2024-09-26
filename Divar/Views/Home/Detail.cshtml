@@ -1,0 +1,27 @@
+﻿@model Advertisement
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @Model.Title</title>
+    <link rel="stylesheet" href="~/css/Detail.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <img src="@Model.ImageUrl" alt="@Model.Title " class="article-image" loading="lazy">
+        <h1 class="article-title"> @Model.Title</h1>
+        <p class="@Model.Content">
+            @Model.Content
+        </p>
+        <h6>@Model.Price</h6>
+        <a asp-action="Index">Back to list</a>
+        <a asp-action="Edit">Edit this</a>
+
+    </div>
+</body>
+</html> 
+
