@@ -1,4 +1,4 @@
-﻿@* @model Divar.Models.Advertisement
+﻿@model Divar.Models.Advertisement
 
 <h2>Delete Advertisement</h2>
 
@@ -6,16 +6,16 @@
 <div>
     <h4>@Model.Title</h4>
     <div>
-        <p>@Model.Description</p>
+        <p>@Model.Content</p>
         <p>Price: @Model.Price</p>
         <p>Category: @Model.Category</p>
-        <p>Publisher: @Model.PublisherName</p> 
+        <p>Publisher: @Model.CreatedDate</p> 
     </div>
 
-    <form asp-action="DeleteConfirmed" method="post">
+    <form asp-action="Delete" method="post">
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-danger"> Delete </button>
         <a asp-action="Index" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
- *@
+

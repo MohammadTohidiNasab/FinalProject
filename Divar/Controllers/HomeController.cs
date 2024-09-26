@@ -55,8 +55,38 @@ namespace Divar.Controllers
         }
 
 
+
+
+
+
         //Edit Advertisement
 
+        [HttpPost]
+        public IActionResult Edit(int id, Advertisement updatedadvertisements)
+        {
+            if (ModelState.IsValid)
+            {
+                var article = _context.advertisements.FirstOrDefault(c => c.Id == id);
+
+                if (article == null)
+                {
+                    return NotFound();
+                }
+                article.Title = updatedadvertisements.Title;
+                article.Content = updatedadvertisements.Content;
+                article.Price = updatedadvertisements.Price;
+                article.Category = updatedadvertisements.Category; 
+                article.ImageUrl = updatedadvertisements.ImageUrl;
+
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(updatedadvertisements);
+        }
+
+
+
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var article = _context.advertisements.FirstOrDefault(a => a.Id == id);
@@ -69,25 +99,34 @@ namespace Divar.Controllers
 
 
 
-        [HttpPost]
-        public IActionResult Edit(int id, Advertisement updatedadvertisements)
+
+
+
+        //Delete advertisements
+        // نمایش صفحه حذف مقاله
+        public async Task<IActionResult> Delete(int id)
         {
-            if (ModelState.IsValid)
+            var article = await _context.advertisements.FindAsync(id);
+            if (article == null)
             {
-                var article = _context.advertisements.FirstOrDefault(a => a.Id == id);
-                if (article == null)
-                {
-                    return NotFound();
-                }
-
-                // به‌روزرسانی مقاله در لیست
-                article.Title = updatedadvertisements.Title;
-                article.Content = updatedadvertisements.Content;
-                article.Price = updatedadvertisements.Price;
-
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            return View(updatedadvertisements);
+
+            return View(article);
+        }
+
+        // تأیید حذف مقاله
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var article = await _context.advertisements.FindAsync(id);
+            if (article != null)
+            {
+                _context.advertisements.Remove(article);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index)); // فرض می‌کنیم یک اکشن Index برای نمایش لیست مقالات دارید
         }
 
 

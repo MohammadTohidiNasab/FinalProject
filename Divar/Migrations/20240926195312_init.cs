@@ -21,8 +21,8 @@ namespace Divar.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsAvailable = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsAvailable = table.Column<bool>(type: "bit", nullable: true),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
