@@ -7,9 +7,18 @@ var cnnString = builder.Configuration.GetConnectionString("DivarConnection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AdvertisementDbContext>(options => options.UseSqlServer(cnnString));
+builder.Services.AddDbContext<DivarDbContext>(options => options.UseSqlServer(cnnString));
+builder.Services.AddDistributedMemoryCache();
+//Session config
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // مدت زمان انقضا سشن
+    options.Cookie.HttpOnly = true; 
+    options.Cookie.IsEssential = true; 
+});
 
 var app = builder.Build();
+
 
 
 
@@ -32,5 +41,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();

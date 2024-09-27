@@ -178,7 +178,7 @@
         <h1> اگهی ها</h1>
         <nav>
             <ul>
-                <li><a href="#">Login </a></li>
+                <li><a asp-action="Register" asp-controller="user"> Register</a></li>
                 <li class="dropdown">
                     <button> Category </button>
                     <div class="dropdown-content">
@@ -187,9 +187,11 @@
                         <a href="#">ساعت</a>
                     </div>
                 </li>
-                <li>
-                <li> <a asp-action="Create" asp-controller="Home">add post</a></li>
-                </li>
+
+               <li>  
+                    <li> <a asp-action="Create" asp-controller="Home">add post</a></li>
+               </li>
+
             </ul>
         </nav>
 

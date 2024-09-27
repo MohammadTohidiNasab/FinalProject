@@ -1,0 +1,21 @@
+﻿@model User
+
+<form asp-action="Register" method="post">
+    <div>
+        <label>نام</label>
+        <input asp-for="FirstName" />
+    </div>
+    <div>
+        <label>نام خانوادگی</label>
+        <input asp-for="LastName" />
+    </div>
+    <div>
+        <label>ایمیل</label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label>رمز عبور</label>
+        <input asp-for="PasswordHash" type="password" />
+    </div>
+    <button type="submit">ثبت‌نام</button>
+</form>

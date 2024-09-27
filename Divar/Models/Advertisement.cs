@@ -11,7 +11,7 @@
         public bool ?IsAvailable { get; set; }
         public string ?Category { get; set; }
 
-        //public int ?UserId { get; set; }// Foreign key to User
-        //public User ?User { get; set; }
+        public int ?UserId { get; set; }// Foreign key to User
+        public User ?User { get; set; }
     }
 }

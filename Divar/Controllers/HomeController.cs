@@ -6,9 +6,9 @@ namespace Divar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AdvertisementDbContext _context;
+        private readonly DivarDbContext _context;
 
-        public HomeController(AdvertisementDbContext context)
+        public HomeController(DivarDbContext context)
         {
             _context = context;
         }
@@ -103,7 +103,6 @@ namespace Divar.Controllers
 
 
         //Delete advertisements
-        // نمایش صفحه حذف مقاله
         public async Task<IActionResult> Delete(int id)
         {
             var article = await _context.advertisements.FindAsync(id);
@@ -115,7 +114,7 @@ namespace Divar.Controllers
             return View(article);
         }
 
-        // تأیید حذف مقاله
+        // Delete Confirm
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -126,7 +125,7 @@ namespace Divar.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction(nameof(Index)); // فرض می‌کنیم یک اکشن Index برای نمایش لیست مقالات دارید
+            return RedirectToAction(nameof(Index)); 
         }
 
 
