@@ -54,18 +54,15 @@ namespace Divar.Controllers
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (user != null && BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
-                // ورود موفق
-                // ایجاد سشن و یا توکن
-                HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetInt32("UserId", user.Id); 
+
+                //HttpContext.Session.SetString("UserEmail", user.Email);
+                //HttpContext.Session.SetInt32("UserId", user.Id); 
 
                 return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError(string.Empty, "ایمیل یا رمز عبور نادرست است.");
             return View();
         }
+
     }
 }
-
-
-

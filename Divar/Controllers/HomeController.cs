@@ -99,9 +99,6 @@ namespace Divar.Controllers
 
 
 
-
-
-
         //Delete advertisements
         public async Task<IActionResult> Delete(int id)
         {

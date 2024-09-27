@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Divar.Migrations
 {
     [DbContext(typeof(DivarDbContext))]
-    [Migration("20240926235331_init")]
+    [Migration("20240927184413_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -79,18 +79,15 @@ namespace Divar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -109,7 +106,6 @@ namespace Divar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -131,9 +127,11 @@ namespace Divar.Migrations
 
             modelBuilder.Entity("Divar.Models.Advertisement", b =>
                 {
-                    b.HasOne("Divar.Models.User", null)
+                    b.HasOne("Divar.Models.User", "User")
                         .WithMany("Advertisements")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Divar.Models.User", b =>

@@ -9,13 +9,7 @@ var cnnString = builder.Configuration.GetConnectionString("DivarConnection");
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DivarDbContext>(options => options.UseSqlServer(cnnString));
 builder.Services.AddDistributedMemoryCache();
-//Session config
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // مدت زمان انقضا سشن
-    options.Cookie.HttpOnly = true; 
-    options.Cookie.IsEssential = true; 
-});
+builder.Services.AddSession();
 
 var app = builder.Build();
 
