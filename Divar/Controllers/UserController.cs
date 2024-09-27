@@ -32,7 +32,7 @@ namespace Divar.Controllers
                 user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
                 _context.Users.Add(user); // ذخیره کاربر در دیتابیس
                 await _context.SaveChangesAsync(); // ثبت تغییرات در دیتابیس
-                return RedirectToAction("Login");
+                return RedirectToAction("Index", "Home");
             }
             return View(user);
         }
