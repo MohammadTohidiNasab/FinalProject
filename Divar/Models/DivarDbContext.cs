@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Divar.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace Divar.Models
 {
@@ -9,6 +10,7 @@ namespace Divar.Models
 
         public DbSet<Advertisement> advertisements { get; set; }
         public DbSet<User> Users { get; set; }
+
     }
 
 }

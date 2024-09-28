@@ -1,0 +1,83 @@
+﻿@model Divar.ViewModel.AdminPanel
+
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+<link rel="stylesheet" href="~/css/admin.css">
+
+
+<b>
+    <h1 style="text-align: center;">
+        List of Advertisements
+    </h1>
+</b>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>ImageUrl</th>
+            <th>Price</th>
+            <th>Created Date</th>
+            <th>Is Available</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model.Advertisements)
+        {
+            <tr>
+                <td>@ad.Id</td>
+                <td>@ad.Title</td>
+                <td>@ad.Content</td>
+                <td>@Html.DisplayFor(m => ad.ImageUrl)</td>
+                <td>@ad.Price</td>
+                <td>@ad.CreatedDate</td>
+                <td>@ad.IsAvailable</td>
+                <td>@ad.Category</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<b>
+    <h1 style="text-align: center;">
+        List of Users
+    </h1>
+</b>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>PasswordHash</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usr in Model.Users)
+        {
+            <tr>
+                <td>@usr.Id</td>
+                <td>@usr.FirstName</td>
+                <td>@usr.LastName</td>
+                <td>@usr.Email</td>
+                <td>@usr.PhoneNumber</td>
+                <td>@usr.PasswordHash</td>
+            </tr>
+        }
+    </tbody>
+</table>

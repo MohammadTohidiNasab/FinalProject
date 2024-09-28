@@ -55,10 +55,6 @@ namespace Divar.Controllers
         }
 
 
-
-
-
-
         //Edit Advertisement
 
         [HttpPost]
