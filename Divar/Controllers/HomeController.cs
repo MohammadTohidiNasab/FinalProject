@@ -40,6 +40,7 @@ namespace Divar.Controllers
         {
             if (ModelState.IsValid)
             {
+                advertisement.CreatedDate = DateTime.Now;
                 _context.advertisements.Add(advertisement);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
