@@ -8,7 +8,7 @@ namespace Divar.Models
         public int Id { get; set; }
         [MaxLength(50)]
         public string ?Title { get; set; }
-        [MaxLength(300)]
+        [MaxLength(500)]
         public string ?Content { get; set; }
         public string ?ImageUrl { get; set; }
         public int ?Price { get; set; }
