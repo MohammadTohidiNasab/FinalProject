@@ -18,9 +18,10 @@ namespace Divar.Controllers
         //show all Advertisement
         public IActionResult Index(int pageNumber = 1)
         {
-            var totalAds = _context.advertisements.Count(); 
+            var totalAds = _context.advertisements.Where(ad => ad.IsAvailable == true).Count(); 
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
-            var ads = _context.advertisements.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            var ads = _context.advertisements.Where(ad => ad.IsAvailable == true).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
 
             ViewBag.TotalPages = totalPages; // ارسال تعداد کل صفحات به ویو
             ViewBag.CurrentPage = pageNumber; // ارسال صفحه فعلی به ویو

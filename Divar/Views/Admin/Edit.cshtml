@@ -1,0 +1,29 @@
+﻿@model Divar.Models.Advertisement
+@{
+    Layout = null;
+}
+
+
+
+<form asp-action="Edit" method="post" style="text-align: center;">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <h1>موجودیت کالا جهت نمایش در سایت</h1>
+
+        <label asp-for="IsAvailable" style="font-size: 24px;"></label>
+        <div>
+            <label>
+                <input type="radio" asp-for="IsAvailable" value="true" />
+                True
+            </label>
+            <label>
+                <input type="radio" asp-for="IsAvailable" value="false" />
+                False
+            </label>
+        </div>
+        <span asp-validation-for="IsAvailable" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

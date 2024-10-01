@@ -27,7 +27,7 @@
             <th>ImageUrl</th>
             <th>Price</th>
             <th>Created Date</th>
-            <th>Is Available</th>
+            <th>IsAvailable</th>
             <th>Category</th>
         </tr>
     </thead>
@@ -41,7 +41,11 @@
                 <td>@Html.DisplayFor(m => ad.ImageUrl)</td>
                 <td>@ad.Price</td>
                 <td>@ad.CreatedDate</td>
-                <td>@ad.IsAvailable</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@ad.Id"> @ad.IsAvailable </a>
+                 </td>
+
                 <td>@ad.Category</td>
             </tr>
         }
