@@ -7,16 +7,24 @@ namespace Divar.Controllers
     public class HomeController : Controller
     {
         private readonly DivarDbContext _context;
+        private readonly int pageSize = 4;
 
         public HomeController(DivarDbContext context)
         {
             _context = context;
         }
 
+
         //show all Advertisement
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber = 1)
         {
-            var ads = _context.advertisements.ToList();
+            var totalAds = _context.advertisements.Count(); 
+            var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
+            var ads = _context.advertisements.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.TotalPages = totalPages; // ارسال تعداد کل صفحات به ویو
+            ViewBag.CurrentPage = pageNumber; // ارسال صفحه فعلی به ویو
+
             return View(ads);
         }
 
@@ -56,8 +64,9 @@ namespace Divar.Controllers
         }
 
 
-        //Edit Advertisement
 
+
+        //Edit Advertisement
         [HttpPost]
         public IActionResult Edit(int id, Advertisement updatedadvertisements)
         {
@@ -107,6 +116,8 @@ namespace Divar.Controllers
 
             return View(article);
         }
+
+
 
         // Delete Confirm
         [HttpPost, ActionName("Delete")]

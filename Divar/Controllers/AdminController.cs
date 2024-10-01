@@ -1,6 +1,7 @@
 ﻿using Divar.Models;
 using Divar.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Divar.Controllers
@@ -29,5 +30,22 @@ namespace Divar.Controllers
             return View(viewModel);
         }
 
+
+        //login to admin panel
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("AdminUser");
+            return RedirectToAction("Login");
+        }
+
     }
 }
+

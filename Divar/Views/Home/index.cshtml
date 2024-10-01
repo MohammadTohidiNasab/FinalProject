@@ -1,8 +1,9 @@
-﻿
-<div class="search-container">
+﻿<div class="search-container">
     <input type="text" class="search-input" placeholder="جستجو..." aria-label="serch">
     <button class="search-button">serch</button>
 </div>
+
+<br />
 
 <main>
      <div class="article-container">
@@ -23,3 +24,33 @@
       </div>
 </main>
 
+<br />
+<br />
+
+
+<div>
+    <nav>
+        <ul class="pagination d-flex justify-content-center">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage - 1 })">Previous</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = i })">@i</a>
+                </li>
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage + 1 })">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div
