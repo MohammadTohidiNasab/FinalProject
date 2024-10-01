@@ -6,7 +6,7 @@ namespace Divar.Models
     {
         [Required]
         public int Id { get; set; }
-        [MaxLength(50)]
+        [MaxLength(100)]
         public string ?Title { get; set; }
         [MaxLength(500)]
         public string ?Content { get; set; }

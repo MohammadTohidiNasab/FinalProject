@@ -65,7 +65,6 @@ namespace Divar.Controllers
 
 
 
-
         //Edit Advertisement
         [HttpPost]
         public IActionResult Edit(int id, Advertisement updatedadvertisements)
