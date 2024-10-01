@@ -132,7 +132,5 @@ namespace Divar.Controllers
 
             return RedirectToAction(nameof(Index)); 
         }
-
-
     }
 }
