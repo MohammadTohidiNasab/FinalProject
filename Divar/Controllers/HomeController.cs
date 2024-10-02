@@ -14,20 +14,34 @@ namespace Divar.Controllers
             _context = context;
         }
 
-
-        //show all Advertisement
-        public IActionResult Index(int pageNumber = 1)
+        // Show all advertisements
+        public IActionResult Index(int pageNumber = 1, string category = "")
         {
-            var totalAds = _context.advertisements.Where(ad => ad.IsAvailable == true).Count(); 
+            var query = _context.advertisements.AsQueryable();
+
+            // Filter by category and availability
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                query = query.Where(ad => ad.Category == category);
+            }
+
+            query = query.Where(ad => ad.IsAvailable == true);
+
+            var totalAds = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
-            var ads = _context.advertisements.Where(ad => ad.IsAvailable == true).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
+            var ads = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
-            ViewBag.TotalPages = totalPages; // ارسال تعداد کل صفحات به ویو
-            ViewBag.CurrentPage = pageNumber; // ارسال صفحه فعلی به ویو
+            ViewBag.TotalPages = totalPages; // send total pages to view
+            ViewBag.CurrentPage = pageNumber; // send current page to view
+            ViewBag.CurrentCategory = category; // send currently selected category to view
+            ViewBag.Categories = _context.advertisements.Select(ad => ad.Category).Distinct().ToList();
 
             return View(ads);
         }
+
+
+
 
         //show detalls
         public IActionResult Detail(int id)

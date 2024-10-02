@@ -6,27 +6,21 @@
 <br />
 
 <main>
-     <div class="article-container">
-
-          @foreach (var Advertisement in Model)
-          {
-                <div class="article">
-
-                    <a asp-action="Detail" asp-route-id="@Advertisement.Id">
-
-                        <img src="@Advertisement.ImageUrl" alt="@Advertisement.Title" />
-                        <h3>@Advertisement.Title</h3>
-
-                    </a>
+    <div class="article-container">
+        @foreach (var advertisement in Model)
+        {
+            <div class="article">
+                <a asp-action="Detail" asp-route-id="@advertisement.Id">
+                    <img src="@advertisement.ImageUrl" alt="@advertisement.Title" />
+                    <h3>@advertisement.Title</h3>
+                </a>
             </div>
-          }
-
-      </div>
+        }
+    </div>
 </main>
 
 <br />
 <br />
-
 
 <div>
     <nav>
@@ -34,23 +28,23 @@
             @if (ViewBag.CurrentPage > 1)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage - 1 })">Previous</a>
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage - 1, category = ViewBag.CurrentCategory })">Previous</a>
                 </li>
             }
 
             @for (int i = 1; i <= ViewBag.TotalPages; i++)
             {
                 <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = i })">@i</a>
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = i, category = ViewBag.CurrentCategory })">@i</a>
                 </li>
             }
 
             @if (ViewBag.CurrentPage < ViewBag.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage + 1 })">Next</a>
+                    <a class="page-link" href="@Url.Action("Index", new { pageNumber = ViewBag.CurrentPage + 1, category = ViewBag.CurrentCategory })">Next</a>
                 </li>
             }
         </ul>
     </nav>
-</div
+</div>
