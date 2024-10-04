@@ -35,7 +35,6 @@ namespace Divar.Controllers
             ViewBag.TotalPages = totalPages; // send total pages to view
             ViewBag.CurrentPage = pageNumber; // send current page to view
             ViewBag.CurrentCategory = category; // send currently selected category to view
-            ViewBag.Categories = _context.advertisements.Select(ad => ad.Category).Distinct().ToList();
 
             return View(ads);
         }

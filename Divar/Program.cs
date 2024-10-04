@@ -8,8 +8,8 @@ var cnnString = builder.Configuration.GetConnectionString("DivarConnection");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DivarDbContext>(options => options.UseSqlServer(cnnString));
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
+builder.Services.AddMemoryCache();//base for session
+builder.Services.AddSession(); //add Session services to project
 
 var app = builder.Build();
 
@@ -27,7 +27,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseDeveloperExceptionPage();
+app.UseSession(); //add session to app
 app.UseRouting();
 
 app.UseAuthorization();

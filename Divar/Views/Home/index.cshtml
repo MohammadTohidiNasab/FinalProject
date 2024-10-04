@@ -1,69 +1,7 @@
-﻿@{
-    Layout = null;
-}
+﻿@*
+سرچ باکس برای جست و جو در بدنه و سرتیتر 
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Divar</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Divar.styles.css" asp-append-version="true" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه وسایل دسته دوم</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="~/css/Layout.css" />
-</head>
-
-
-
-
-
-
-<header>
-    <h1> اگهی ها</h1>
-    <nav>
-        <ul>
-            <li><a asp-action="Login" asp-controller="user"> Login</a></li>
-            <li class="dropdown">
-                <button> Category </button>
-                <div class="dropdown-content">
-
-                    <ul>
-                        @foreach (var category in ViewBag.Categories)
-                        {
-                            <li>
-                                <a href="@Url.Action("Index", new { category = category })">@category</a>
-                            </li>
-                        }
-                    </ul>
-
-
-                </div>
-            </li>
-
-            <li>
-            <li> <a asp-action="Create" asp-controller="Home">add post</a></li>
-            </li>
-
-        </ul>
-    </nav>
-</header>
-
-
-
-
-
-
-
-
-@* <div class="search-container">
+<div class="search-container">
     <input type="text" class="search-input" placeholder="جستجو..." aria-label="serch">
     <button class="search-button">serch</button>
 </div>
