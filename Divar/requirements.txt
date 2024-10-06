@@ -17,7 +17,3 @@ https://my-tell.com/wp-content/uploads/2023/11/05-4.jpg
 https://icmobile.ir/wp-content/uploads/2023/11/oneplus-12-Black.jpg
 
 
-todo
-
-add cestion to user
-add regiser panel to admin

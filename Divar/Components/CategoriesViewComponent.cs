@@ -1,8 +1,4 @@
-﻿using Divar.Models;
-using Microsoft.AspNetCore.Mvc;
-
-
-namespace Divar.Components
+﻿namespace Divar.Components
 {
     public class CategoriesViewComponent : ViewComponent
     {

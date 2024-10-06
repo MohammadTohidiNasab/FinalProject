@@ -1,6 +1,4 @@
-﻿using Divar.Models;
-
-namespace Divar.ViewModel
+﻿namespace Divar.ViewModel
 {
     public class AdminPanel
     {

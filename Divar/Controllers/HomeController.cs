@@ -1,9 +1,4 @@
-﻿using Divar.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-
-namespace Divar.Controllers
+﻿namespace Divar.Controllers
 {
     public class HomeController : Controller
     {
@@ -46,8 +41,9 @@ namespace Divar.Controllers
         //show detalls
         public IActionResult Detail(int id)
         {
-            var article = _context.advertisements.FirstOrDefault(c => c.Id == id);
-
+            var article = _context.advertisements
+                .Include(a => a.User) // Include the User details
+                .FirstOrDefault(c => c.Id == id);
             if (article == null)
             {
                 return NotFound();

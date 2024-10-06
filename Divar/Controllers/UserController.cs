@@ -1,8 +1,4 @@
-﻿using Divar.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-namespace Divar.Controllers
+﻿namespace Divar.Controllers
 {
     public class UserController : Controller
     {

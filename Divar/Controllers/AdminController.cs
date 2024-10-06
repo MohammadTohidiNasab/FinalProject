@@ -1,12 +1,4 @@
-﻿using Divar.Models;
-using Divar.ViewModel;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-
-
-namespace Divar.Controllers
+﻿namespace Divar.Controllers
 {
     public class AdminController : Controller
     {

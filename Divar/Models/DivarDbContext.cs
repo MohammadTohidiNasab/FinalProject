@@ -1,8 +1,4 @@
-﻿using Divar.ViewModel;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-namespace Divar.Models
+﻿namespace Divar.Models
 {
 
     public class DivarDbContext : DbContext
