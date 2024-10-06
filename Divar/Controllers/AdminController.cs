@@ -9,7 +9,7 @@
             _context = context;
         }
 
-
+        //نمایش محصولات و کاربران
         public IActionResult Index()
         {
             var users = _context.Users.ToList();
@@ -25,54 +25,6 @@
         }
 
 
-        //login to admin panel
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Remove("AdminUser");
-            return RedirectToAction("Login");
-        }
-
-        //ویرایش موجودیت کالا
-        [HttpPost]
-        public IActionResult Edit(int id, Advertisement updatedadvertisements)
-        {
-            if (ModelState.IsValid)
-            {
-                var article = _context.advertisements.FirstOrDefault(c => c.Id == id);
-
-                if (article == null)
-                {
-                    return NotFound();
-                }
-                article.IsAvailable = updatedadvertisements.IsAvailable;
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(updatedadvertisements);
-        }
-
-
-
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            var article = _context.advertisements.FirstOrDefault(a => a.Id == id);
-            if (article == null)
-            {
-                return NotFound();
-            }
-            return View(article);
-        }
-
-
 
         //حذف کاربران
         public async Task<IActionResult> DeleteUser(int id)
@@ -85,7 +37,6 @@
 
             return View(_user);
         }
-
 
 
         // Delete Confirm

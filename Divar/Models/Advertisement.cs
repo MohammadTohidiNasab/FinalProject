@@ -11,7 +11,6 @@
         public string ?ImageUrl { get; set; }
         public int Price { get; set; }
         public DateTime ?CreatedDate { get; set; }
-        public bool ?IsAvailable { get; set; } = true;
         [MaxLength(50)]
         public string Category { get; set; }
 

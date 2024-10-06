@@ -11,29 +11,37 @@
         }
 
         // Show all advertisements
-        public IActionResult Index(int pageNumber = 1, string category = "")
+        public IActionResult Index(int pageNumber = 1, string category = "", string searchTerm = "")
         {
             var query = _context.advertisements.AsQueryable();
 
-            // Filter by category and availability
+            // Filter by category
             if (!string.IsNullOrWhiteSpace(category))
             {
                 query = query.Where(ad => ad.Category == category);
             }
 
-            query = query.Where(ad => ad.IsAvailable == true);
+            // Filter by search term in Title
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                query = query.Where(ad => ad.Title.Contains(searchTerm));
+            }
 
             var totalAds = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
 
             var ads = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
-            ViewBag.TotalPages = totalPages; // send total pages to view
-            ViewBag.CurrentPage = pageNumber; // send current page to view
-            ViewBag.CurrentCategory = category; // send currently selected category to view
+            ViewBag.TotalPages = totalPages;
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.CurrentCategory = category;
+            ViewBag.CurrentSearchTerm = searchTerm; // سنجشتگیری عبارت جستجو
 
             return View(ads);
         }
+
+
+
 
 
 
@@ -93,7 +101,7 @@
                 article.Title = updatedadvertisements.Title;
                 article.Content = updatedadvertisements.Content;
                 article.Price = updatedadvertisements.Price;
-                article.Category = updatedadvertisements.Category; 
+                article.Category = updatedadvertisements.Category;
                 article.ImageUrl = updatedadvertisements.ImageUrl;
 
                 _context.SaveChanges();
@@ -144,7 +152,7 @@
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction(nameof(Index)); 
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Divar.Migrations
 {
     [DbContext(typeof(DivarDbContext))]
-    [Migration("20241006060935_init")]
+    [Migration("20241006182506_init")]
     partial class init
     {
         /// <inheritdoc />

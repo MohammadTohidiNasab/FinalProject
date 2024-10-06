@@ -34,9 +34,8 @@
             <th>ImageUrl</th>
             <th>Price</th>
             <th>Created Date</th>
-            <th>IsAvailable</th>
             <th>Category</th>
-            <th>User CeaterId</th>
+            <th>User Creator</th>
 
         </tr>
     </thead>
@@ -50,13 +49,8 @@
                 <td>@Html.DisplayFor(m => ad.ImageUrl)</td>
                 <td>@ad.Price</td>
                 <td>@ad.CreatedDate</td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@ad.Id"> @ad.IsAvailable </a>
-                 </td>
-
                 <td>@ad.Category</td>
-                <td>@ad.UserId</td>
+                <td>@ad.User.FirstName @ad.User.LastName</td>
 
             </tr>
         }
