@@ -1,0 +1,20 @@
+﻿@model Divar.Models.User
+
+@{
+    ViewData["Title"] = "حذف کاربر";
+}
+
+
+
+
+<h1 style="text-align: center;">حذف کاربر</h1>
+
+<div style="text-align: center;">
+    <h2>  را حذف کنید؟ <strong>@Model.FirstName @Model.LastName</strong> آیا مطمئن هستید که می‌خواهید کاربر  </h2>
+
+    <form asp-action="Delete" method="post" style="display: inline-block;">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">حذف</button>
+        <a asp-action="Index" class="btn btn-secondary">لغو</a>
+    </form>
+</div>

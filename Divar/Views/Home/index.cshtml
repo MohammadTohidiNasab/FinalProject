@@ -1,11 +1,12 @@
-﻿@*
-سرچ باکس برای جست و جو در بدنه و سرتیتر 
+﻿@if (Context.Session.GetString("UserEmail") != null)
+{
+    <p>   خوش امدید: @Context.Session.GetString("FirstName")</p>
+}
+else
+{
+    <p> شما لاگین نکرده اید</p>
+}
 
-<div class="search-container">
-    <input type="text" class="search-input" placeholder="جستجو..." aria-label="serch">
-    <button class="search-button">serch</button>
-</div>
- *@
 
 
 <main>

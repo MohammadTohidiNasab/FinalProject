@@ -1,4 +1,5 @@
 ﻿using Divar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -60,8 +61,10 @@ namespace Divar.Controllers
         [HttpPost]
         public IActionResult Create(Advertisement advertisement)
         {
+            var userId = HttpContext.Session.GetInt32("UserId");
             if (ModelState.IsValid)
             {
+                advertisement.UserId = userId;
                 advertisement.CreatedDate = DateTime.Now;
                 _context.advertisements.Add(advertisement);
                 _context.SaveChanges();
@@ -137,6 +140,8 @@ namespace Divar.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var article = await _context.advertisements.FindAsync(id);
+
+
             if (article != null)
             {
                 _context.advertisements.Remove(article);

@@ -1,4 +1,5 @@
 ﻿using Divar.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,6 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DivarDbContext>(options => options.UseSqlServer(cnnString));
 builder.Services.AddMemoryCache();//base for session
 builder.Services.AddSession(); //add Session services to project
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DivarDbContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -32,6 +34,7 @@ app.UseSession(); //add session to app
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",

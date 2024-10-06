@@ -36,6 +36,8 @@
             <th>Created Date</th>
             <th>IsAvailable</th>
             <th>Category</th>
+            <th>User CeaterId</th>
+
         </tr>
     </thead>
     <tbody>
@@ -54,6 +56,8 @@
                  </td>
 
                 <td>@ad.Category</td>
+                <td>@ad.UserId</td>
+
             </tr>
         }
     </tbody>
@@ -75,7 +79,7 @@
 <table>
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Id "click for delete User"</th>
             <th>FirstName</th>
             <th>LastName</th>
             <th>Email</th>
@@ -86,14 +90,14 @@
     <tbody>
         @foreach (var usr in Model.Users)
         {
-            <tr>
-                <td>@usr.Id</td>
-                <td>@usr.FirstName</td>
-                <td>@usr.LastName</td>
-                <td>@usr.Email</td>
-                <td>@usr.PhoneNumber</td>
-                <td>@usr.PasswordHash</td>
-            </tr>
+                <tr>
+                    <td><a asp-action="DeleteUser" asp-route-id="@usr.Id"> @usr.Id</a></td>
+                    <td>@usr.FirstName</td>
+                    <td>@usr.LastName</td>
+                    <td>@usr.Email</td>
+                    <td>@usr.PhoneNumber</td>
+                    <td>@usr.PasswordHash</td>
+                </tr>
         }
     </tbody>
 </table>
