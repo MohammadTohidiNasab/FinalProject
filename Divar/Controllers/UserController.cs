@@ -43,23 +43,6 @@
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Login(string email, string password)
-        //{
-        //    // پیدا کردن کاربر بر اساس ایمیل
-        //    var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        //    if (user != null && BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-        //    {
-        //        HttpContext.Session.SetString("UserEmail", user.Email);
-        //        HttpContext.Session.SetInt32("UserId", user.Id);
-        //        HttpContext.Session.SetString("FirstName", user.FirstName);
-
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    ModelState.AddModelError(string.Empty, "ایمیل یا رمز عبور نادرست است.");
-        //    return View();
-        //}
-
 
 
         [HttpPost]
@@ -80,7 +63,7 @@
             ModelState.AddModelError(string.Empty, "ایمیل یا رمز عبور نادرست است.");
 
             // اینجا باید مدل را به نما ارسال کنید
-            return View(); // یا return View(yourModel) که در آن yourModel مدل شما است
+            return View(); 
         }
 
 
