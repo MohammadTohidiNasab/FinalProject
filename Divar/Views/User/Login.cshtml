@@ -57,6 +57,16 @@
     <button type="submit">ورود</button>
 </form>
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="text-align: center;">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
 <br />
 
 
