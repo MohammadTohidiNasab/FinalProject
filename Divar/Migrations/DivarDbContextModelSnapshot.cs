@@ -45,9 +45,6 @@ namespace Divar.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsAvailable")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -89,10 +86,12 @@ namespace Divar.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
