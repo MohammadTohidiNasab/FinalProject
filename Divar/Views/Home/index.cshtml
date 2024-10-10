@@ -1,6 +1,6 @@
 ﻿@if (Context.Session.GetString("UserEmail") != null)
 {
-    <a asp-action="Index"> <p>   خوش امدید: @Context.Session.GetString("FirstName")</p>   </a>
+        <a asp-action="Dashboard"> <p>   خوش امدید: @Context.Session.GetString("FirstName")</p>   </a>
 }
 
 

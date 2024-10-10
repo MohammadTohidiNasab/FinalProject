@@ -154,5 +154,26 @@
 
             return RedirectToAction(nameof(Index));
         }
+
+
+
+
+        //dashbord user
+
+
+        public IActionResult Dashboard(int pageNumber = 1)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId"); // دریافت UserId از سشن
+
+            var query = _context.advertisements.Where(ad => ad.UserId == userId).AsQueryable();
+            var totalAds = query.Count();
+            var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
+            var ads = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.TotalPages = totalPages;
+            ViewBag.CurrentPage = pageNumber;
+
+            return View(ads);
+        }
     }
 }
