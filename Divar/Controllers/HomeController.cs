@@ -3,7 +3,7 @@
     public class HomeController : Controller
     {
         private readonly DivarDbContext _context;
-        private readonly int pageSize = 4;
+        private readonly int pageSize = 8;
 
         public HomeController(DivarDbContext context)
         {

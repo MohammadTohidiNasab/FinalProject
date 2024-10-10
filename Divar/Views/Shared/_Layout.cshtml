@@ -25,6 +25,12 @@
             <ul>
 
 
+                <li class="dropdown">
+                     <a asp-action="Index">
+                        Home
+                     </a>
+                </li>
+
                 <li>
                     @if (Context.Session.GetString("UserEmail") != null)
                     {
@@ -55,6 +61,7 @@
                     <li><a asp-action="Login" asp-controller="user"> add post</a></li>
                     }
                </li>
+
 
             </ul>
         </nav>
