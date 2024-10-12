@@ -27,23 +27,23 @@
 
                 <li class="dropdown">
                      <a asp-action="Index" asp-controller="home">
-                        Home
+                        خانه
                      </a>
                 </li>
 
                 <li>
                     @if (Context.Session.GetString("UserEmail") != null)
                     {
-                    <li><a asp-action="Logout" asp-controller="user"> Logout</a></li>
+                    <li><a asp-action="Logout" asp-controller="user"> خروج از حساب</a></li>
                     }
                     else
                     {
-                    <li><a asp-action="Login" asp-controller="user"> Login</a></li>
+                    <li><a asp-action="Login" asp-controller="user"> ورود به حساب</a></li>
                     }
                 </li>
 
                 <li class="dropdown">
-                    <button> Category </button>
+                    <button> دسته بندی ها </button>
                     <div class="dropdown-content">
 
                         @await Component.InvokeAsync("Categories")
@@ -54,11 +54,11 @@
                <li>
                     @if (Context.Session.GetString("UserEmail") != null)
                     {
-                    <li> <a asp-action="Create" asp-controller="Home">add post</a></li>
+                    <li> <a asp-action="Create" asp-controller="Home">ثبت اگهی</a></li>
                     }
                     else
                     {
-                    <li><a asp-action="Login" asp-controller="user"> add post</a></li>
+                    <li><a asp-action="Login" asp-controller="user"> ثبت اگهی</a></li>
                     }
                </li>
 
