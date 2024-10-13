@@ -1,7 +1,7 @@
 ﻿@model List<Advertisement>
 
-<h1 style="text-align: center;"> @Context.Session.GetString("FirstName") داشبورد</h1>
-<h2 style="text-align: center;" >اگهی های شما</h2>
+<h2> @Context.Session.GetString("FirstName") داشبورد</h2>
+<h1 style="text-align: center;" >اگهی های شما</h1>
 
 @if (Model.Count == 0)
 {
