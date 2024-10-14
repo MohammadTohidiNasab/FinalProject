@@ -29,7 +29,6 @@
 
             var totalAds = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
-
             var ads = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
             ViewBag.TotalPages = totalPages;
@@ -42,21 +41,17 @@
 
 
 
-
-
-
-
         //show detalls
         public IActionResult Detail(int id)
         {
-            var article = _context.advertisements
+            var adds = _context.advertisements
                 .Include(a => a.User) // Include the User details
                 .FirstOrDefault(c => c.Id == id);
-            if (article == null)
+            if (adds == null)
             {
                 return NotFound();
             }
-            return View(article);
+            return View(adds);
         }
 
 
@@ -92,17 +87,17 @@
         {
             if (ModelState.IsValid)
             {
-                var article = _context.advertisements.FirstOrDefault(c => c.Id == id);
+                var adds = _context.advertisements.FirstOrDefault(c => c.Id == id);
 
-                if (article == null)
+                if (adds == null)
                 {
                     return NotFound();
                 }
-                article.Title = updatedadvertisements.Title;
-                article.Content = updatedadvertisements.Content;
-                article.Price = updatedadvertisements.Price;
-                article.Category = updatedadvertisements.Category;
-                article.ImageUrl = updatedadvertisements.ImageUrl;
+                adds.Title = updatedadvertisements.Title;
+                adds.Content = updatedadvertisements.Content;
+                adds.Price = updatedadvertisements.Price;
+                adds.Category = updatedadvertisements.Category;
+                adds.ImageUrl = updatedadvertisements.ImageUrl;
 
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -115,12 +110,12 @@
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var article = _context.advertisements.FirstOrDefault(a => a.Id == id);
-            if (article == null)
+            var adds = _context.advertisements.FirstOrDefault(a => a.Id == id);
+            if (adds == null)
             {
                 return NotFound();
             }
-            return View(article);
+            return View(adds);
         }
 
 
@@ -128,13 +123,13 @@
         //Delete advertisements
         public async Task<IActionResult> Delete(int id)
         {
-            var article = await _context.advertisements.FindAsync(id);
-            if (article == null)
+            var adds = await _context.advertisements.FindAsync(id);
+            if (adds == null)
             {
                 return NotFound();
             }
 
-            return View(article);
+            return View(adds);
         }
 
 
@@ -143,12 +138,12 @@
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var article = await _context.advertisements.FindAsync(id);
+            var adds = await _context.advertisements.FindAsync(id);
 
 
-            if (article != null)
+            if (adds != null)
             {
-                _context.advertisements.Remove(article);
+                _context.advertisements.Remove(adds);
                 await _context.SaveChangesAsync();
             }
 
@@ -158,13 +153,10 @@
 
 
 
-        //dashbord user
-
-
+        //user dashbord 
         public IActionResult Dashboard(int pageNumber = 1)
         {
-            var userId = HttpContext.Session.GetInt32("UserId"); // دریافت UserId از سشن
-
+            var userId = HttpContext.Session.GetInt32("UserId"); //از سشن UserId دریافت
             var query = _context.advertisements.Where(ad => ad.UserId == userId).AsQueryable();
             var totalAds = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
