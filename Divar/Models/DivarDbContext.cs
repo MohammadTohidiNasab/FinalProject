@@ -22,10 +22,13 @@
                 .WithMany(u => u.Advertisements)
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // make Email uniqe 
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique(); 
         }
-
     }
-
 }
-
 

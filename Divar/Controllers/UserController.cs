@@ -24,6 +24,15 @@
         {
             if (ModelState.IsValid)
             {
+
+                bool emailExists = await _context.Users.AnyAsync(u => u.Email == user.Email);
+                if (emailExists)
+                {
+                    // اگر ایمیل تکراری بود، یک خطای جدید به مدل اضافه کنید
+                    ModelState.AddModelError("Email", "ایمیل تکراری است.");
+                    return View(user);
+                }
+
                 // هش کردن رمز عبور و ذخیره کاربر در دیتابیس
                 user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
                 _context.Users.Add(user); // ذخیره کاربر در دیتابیس
