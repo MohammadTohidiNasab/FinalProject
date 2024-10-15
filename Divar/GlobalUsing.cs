@@ -4,3 +4,7 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Identity;
 global using Divar.Models;
 global using Divar.ViewModel;
+global using System;
+global using System.Collections.Generic;
+global using System.Data;
+global using System.Data.SqlClient;
