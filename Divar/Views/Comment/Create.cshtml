@@ -5,13 +5,10 @@
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="Body"></label>
-        <textarea asp-for="Body" class="form-control"></textarea>
+        <textarea asp-for="Body" class="form-control" style="height: 150px; resize: none;"></textarea>
         <span asp-validation-for="Body" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">اضافه کردن</button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">اضافه کردن</button>
+    <a asp-action="Index" class="btn btn-secondary" style="margin-top: 10px; margin-left: 10px;">بازگشت به لیست</a>
 </form>
-
-<div>
-    <a asp-action="Index">بازگشت به لیست</a>
-</div>
