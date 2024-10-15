@@ -14,11 +14,13 @@
         {
             var users = _context.Users.ToList();
             var advertisements = _context.advertisements.ToList();
+            var comments = _context.Comments.ToList();
 
             var viewModel = new AdminPanel
             {
                 Users = users,
-                Advertisements = advertisements
+                Advertisements = advertisements,
+                Comments = comments
             };
 
             return View(viewModel);

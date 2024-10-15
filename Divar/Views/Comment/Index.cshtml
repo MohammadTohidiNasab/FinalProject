@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Divar.Models.Comment>
-
+<link href="~/css/admin.css" rel="stylesheet" />
 <h2>کامنت‌ها</h2>
 
 <table class="table">
@@ -16,7 +16,7 @@
             <tr>
                 <td>@comment.Id</td>
                 <td>@comment.Body</td>
-                <td>@comment.CreatedDate</td>
+                <td>@comment.CreatedDate.ToString("yyyy/MM/dd HH:mm:ss")</td>
             </tr>
         }
     </tbody>

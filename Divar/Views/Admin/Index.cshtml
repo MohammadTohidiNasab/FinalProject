@@ -95,3 +95,43 @@
         }
     </tbody>
 </table>
+
+
+
+
+
+
+
+<br />
+<hr />
+
+
+
+<b>
+    <h1 style="text-align: center;">
+         کامنت ها
+    </h1>
+</b>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>body</th>
+            <th>publish date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comnt in Model.Comments)
+        {
+            <tr>
+                <td>@comnt.Id</td>
+                <td>@comnt.Body</td>
+                <td>@comnt.CreatedDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
