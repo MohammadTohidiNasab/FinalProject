@@ -13,7 +13,7 @@
         // Show all advertisements
         public IActionResult Index(int pageNumber = 1, string category = "", string searchTerm = "")
         {
-            var query = _context.advertisements.AsQueryable();
+            var query = _context.Advertisements.AsQueryable();
 
             // Filter by category
             if (!string.IsNullOrWhiteSpace(category))
@@ -44,7 +44,7 @@
         //show detalls
         public IActionResult Detail(int id)
         {
-            var adds = _context.advertisements
+            var adds = _context.Advertisements
                 .Include(a => a.User) // Include the User details
                 .FirstOrDefault(c => c.Id == id);
             if (adds == null)
@@ -65,7 +65,7 @@
             {
                 advertisement.UserId = userId;
                 advertisement.CreatedDate = DateTime.Now;
-                _context.advertisements.Add(advertisement);
+                _context.Advertisements.Add(advertisement);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -87,7 +87,7 @@
         {
             if (ModelState.IsValid)
             {
-                var adds = _context.advertisements.FirstOrDefault(c => c.Id == id);
+                var adds = _context.Advertisements.FirstOrDefault(c => c.Id == id);
 
                 if (adds == null)
                 {
@@ -110,7 +110,7 @@
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var adds = _context.advertisements.FirstOrDefault(a => a.Id == id);
+            var adds = _context.Advertisements.FirstOrDefault(a => a.Id == id);
             if (adds == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@
         //Delete advertisements
         public async Task<IActionResult> Delete(int id)
         {
-            var adds = await _context.advertisements.FindAsync(id);
+            var adds = await _context.Advertisements.FindAsync(id);
             if (adds == null)
             {
                 return NotFound();
@@ -138,12 +138,12 @@
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var adds = await _context.advertisements.FindAsync(id);
+            var adds = await _context.Advertisements.FindAsync(id);
 
 
             if (adds != null)
             {
-                _context.advertisements.Remove(adds);
+                _context.Advertisements.Remove(adds);
                 await _context.SaveChangesAsync();
             }
 
@@ -157,7 +157,7 @@
         public IActionResult Dashboard(int pageNumber = 1)
         {
             var userId = HttpContext.Session.GetInt32("UserId"); //از سشن UserId دریافت
-            var query = _context.advertisements.Where(ad => ad.UserId == userId).AsQueryable();
+            var query = _context.Advertisements.Where(ad => ad.UserId == userId).AsQueryable();
             var totalAds = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalAds / pageSize);
             var ads = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();

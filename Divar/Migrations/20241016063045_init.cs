@@ -17,7 +17,7 @@ namespace Divar.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Body = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -54,7 +54,7 @@ namespace Divar.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "advertisements",
+                name: "Advertisements",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -69,9 +69,9 @@ namespace Divar.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_advertisements", x => x.Id);
+                    table.PrimaryKey("PK_Advertisements", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_advertisements_Users_UserId",
+                        name: "FK_Advertisements_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -79,8 +79,8 @@ namespace Divar.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_advertisements_UserId",
-                table: "advertisements",
+                name: "IX_Advertisements_UserId",
+                table: "Advertisements",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -94,7 +94,7 @@ namespace Divar.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "advertisements");
+                name: "Advertisements");
 
             migrationBuilder.DropTable(
                 name: "Comments");

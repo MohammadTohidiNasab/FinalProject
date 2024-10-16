@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Divar.Migrations
 {
     [DbContext(typeof(DivarDbContext))]
-    [Migration("20241015072436_init")]
+    [Migration("20241016063045_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -63,7 +63,7 @@ namespace Divar.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("advertisements");
+                    b.ToTable("Advertisements");
                 });
 
             modelBuilder.Entity("Divar.Models.Comment", b =>
@@ -76,7 +76,8 @@ namespace Divar.Migrations
 
                     b.Property<string>("Body")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");

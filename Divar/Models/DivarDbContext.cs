@@ -5,7 +5,7 @@
     {
         public DivarDbContext(DbContextOptions<DivarDbContext> options) : base(options) { }
 
-        public DbSet<Advertisement> advertisements { get; set; }
+        public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Comment> Comments { get; set; }
 

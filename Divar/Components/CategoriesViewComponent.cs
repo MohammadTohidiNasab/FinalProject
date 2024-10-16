@@ -11,7 +11,7 @@
 
         public IViewComponentResult Invoke()
         {
-            var categories = _context.advertisements
+            var categories = _context.Advertisements
                 .Select(ad => ad.Category)
                 .Distinct()
                 .ToList();

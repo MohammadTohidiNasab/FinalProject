@@ -13,7 +13,7 @@
         public IActionResult Index()
         {
             var users = _context.Users.ToList();
-            var advertisements = _context.advertisements.ToList();
+            var advertisements = _context.Advertisements.ToList();
             var comments = _context.Comments.ToList();
 
             var viewModel = new AdminPanel
@@ -46,8 +46,8 @@
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             // حذف تبلیغات مرتبط
-            var advertisements = _context.advertisements.Where(a => a.UserId == id);
-            _context.advertisements.RemoveRange(advertisements);
+            var advertisements = _context.Advertisements.Where(a => a.UserId == id);
+            _context.Advertisements.RemoveRange(advertisements);
             HttpContext.Session.Clear();
             var _user = await _context.Users.FindAsync(id);
             if (_user != null)

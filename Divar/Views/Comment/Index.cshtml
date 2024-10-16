@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Divar.Models.Comment>
-<link href="~/css/admin.css" rel="stylesheet" />
+<link href="~/css/Comment.css" rel="stylesheet" />
 <h2 style="text-align: center;">کامنت‌ها</h2>
-
 <table class="table">
     <thead>
         <tr>
@@ -22,6 +21,6 @@
     </tbody>
 </table>
 
-<div>
-    <a asp-action="Create">اضافه کردن کامنت جدید</a>
+<div class="button-container">
+    <a class="button" asp-action="Create" asp-controller="Comment">اضافه کردن کامنت جدید</a>
 </div>
