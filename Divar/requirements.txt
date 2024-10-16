@@ -1,32 +1,4 @@
-image url computer
-https://m.media-amazon.com/images/I/71snht4ZY+L._AC_UF1000,1000_QL80_.jpg
-https://jalebamooz.com/wp-content/uploads/2019/04/desktop-program-750x405.jpg
-https://static.digiato.com/digiato/2018/08/Computer01.jpg
-https://mag.mizbanfa.net/wp-content/uploads/2018/10/instagram-pc-post.png
-https://wintip.ir/wp-content/uploads/2024/07/Computer-monitor.jpg
-image url wathc
-https://cdnfa.com/asnakala/c4f8/files/6400020.jpg
-https://myroz.ir/wp-content/uploads/2024/04/19-.webp
-https://skmei-ir.com/wp-content/uploads/2020/12/skmei-watch-model-1637-11.jpg
-https://mrspeciall.ir/wp-content/uploads/2024/01/invicta26.jpg
-https://skmei-ir.com/wp-content/uploads/2021/09/skmei-watch-model-1742-12.jpg
-https://janebitik.com/upload/Product/images/7151383686.jpg
-https://biwatch.ir/wp-content/uploads/2023/03/FDCA13D7-3566-4B1A-8F86-819FA6E29E09.jpeg
-https://skmei-ir.com/wp-content/uploads/2022/12/skmei-watch-model-1990-10.jpg
-image url phone
-https://coralphone.com/wp-content/uploads/2023/06/Coralphone-4-1.jpg
-https://www.technolife.ir/image/color_image_TLP-34773_9ee3202a-8a9d-4747-9354-2f9f8e718e74.png
-https://itsalat.ir/uploads/products/silver.jpg
-https://my-tell.com/wp-content/uploads/2023/11/05-4.jpg
-https://icmobile.ir/wp-content/uploads/2023/11/oneplus-12-Black.jpg
-book url 
-https://phoo.ir/wp-content/uploads/edd/zhanet/23400-6016x4016-phoo.ir_.jpg
-https://files.virgool.io/upload/users/140161/posts/foyd4qgymy50/gqtwnk5dkkqi.jpg
-https://hamyartarahi.com/upload/product/orginal/hamyartarahi-com-2138.webp
-https://cdn.yjc.ir/files/fa/news/1399/7/7/12665784_857.jpg
-https://www.gfxdownload.ir/uploads/posts/2023-11/book10.jpg
-
-
+﻿ایمیل های کاربران و شماره تلفن انها
 
 mohammad@gmail.com
 0910889945
@@ -36,4 +8,24 @@ reza@gmail.com
 
 ali@gmail.com
 09185665153
+
+sajad@gmail.com
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+
+
+ مورد نیاز STORED-PROCEDURE  ساخت 
+
+CREATE PROCEDURE sp_InsertComment
+    @Body NVARCHAR(400),
+    @CreatedDate DATETIME
+AS
+BEGIN
+    INSERT INTO Comments (Body, CreatedDate)
+    VALUES (@Body, @CreatedDate)
+END
+
+
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 
