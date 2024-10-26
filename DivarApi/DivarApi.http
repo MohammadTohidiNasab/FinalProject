@@ -1,0 +1,6 @@
+@DivarApi_HostAddress = http://localhost:5148
+
+GET {{DivarApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Divar", "Divar\Divar.csproj", "{8DB24787-083A-4945-A1B2-99DC37FA9EF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivarApi", "DivarApi\DivarApi.csproj", "{107033DD-48A3-472F-AE58-814C163060C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8DB24787-083A-4945-A1B2-99DC37FA9EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB24787-083A-4945-A1B2-99DC37FA9EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB24787-083A-4945-A1B2-99DC37FA9EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{107033DD-48A3-472F-AE58-814C163060C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107033DD-48A3-472F-AE58-814C163060C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107033DD-48A3-472F-AE58-814C163060C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107033DD-48A3-472F-AE58-814C163060C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
